@@ -52,7 +52,7 @@ export class VerificarComponent implements OnInit {
     }
 
     // 2. Se lo enviamos al Back-End
-    this.http.get(`https://back-end-donaruma-production-ac0c.up.railway.app/api/Usuarios/confirmar?token=${token}`).subscribe({
+    this.http.get(`http://localhost:5108/api/Usuarios/confirmar?token=${token}`).subscribe({
       next: (res: any) => {
         this.estado = 'exito';
       },

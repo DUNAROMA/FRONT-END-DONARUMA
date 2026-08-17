@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs'; 
 
@@ -6,8 +7,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CarritoService {
-  private stripeUrl = 'https://back-end-donaruma-production-ac0c.up.railway.app/api/Pagos/crear-sesion'; 
-  private carritoApiUrl = 'https://back-end-donaruma-production-ac0c.up.railway.app/api/Carrito'; 
+  private stripeUrl = 'https://localhost:7030/api/Pagos/crear-sesion'; 
+  private carritoApiUrl = 'https://localhost:7030/api/Carrito'; 
 
   // 🔄 Nuestra memoria temporal (RAM). Cuando el usuario cierra la pestaña, esto desaparece.
   private _carrito = new BehaviorSubject<any[]>([]);

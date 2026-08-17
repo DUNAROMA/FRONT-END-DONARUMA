@@ -261,10 +261,24 @@ export class Inicio implements OnInit, OnDestroy {
     this.carritoAbierto = !this.carritoAbierto; 
   }
 
-  irAlCarrito() {
+ irAlCarrito() {
+    console.log('🔍 PASO 1: El botón sí funciona y la función arrancó.');
     this.carritoAbierto = false; 
     document.body.classList.remove('modal-open'); 
-    this.router.navigate(['/carrito']);
+    
+    console.log('🔍 PASO 2: Ordenando a Angular que viaje a /carrito...');
+
+    // Atrapamos la respuesta silenciosa del Router
+    this.router.navigate(['/carrito'])
+      .then(exito => {
+        console.log('🔍 PASO 3: ¿Se logró abrir la página?:', exito);
+        if (!exito) {
+          console.error('🚨 ALERTA: Angular se negó a viajar. La ruta "/carrito" no coincide con tu configuración.');
+        }
+      })
+      .catch(error => {
+        console.error('🚨 FATAL: Angular intentó abrir la página, pero el componente Carrito "crasheó" al cargar:', error);
+      });
   }
 
   // --- NOTIFICACIONES ---

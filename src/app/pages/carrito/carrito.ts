@@ -103,16 +103,28 @@ export class Carrito implements OnInit {
     // 👉 PASO 2: Le pasamos ese ID a nuestro servicio
     this.carritoService.procesarPagoStripe(idUsuario).subscribe({
       next: (respuesta: any) => {
+        // 👀 NUESTRO ESPÍA: Vamos a ver qué nos manda realmente el backend
+        console.log('Respuesta del backend para Stripe:', respuesta);
+
+        // Validamos diferentes formas en las que el backend podría estar mandando la URL
         if (respuesta.url) {
           window.location.href = respuesta.url; 
+        } else if (respuesta.Url) { 
+          // A veces C# / .NET manda las propiedades con mayúscula inicial
+          window.location.href = respuesta.Url;
+        } else if (typeof respuesta === 'string' && respuesta.includes('http')) {
+          // Por si el backend manda directamente el texto de la URL sin un objeto
+          window.location.href = respuesta;
+        } else {
+          // Si llega hasta aquí, el backend respondió, pero no sabemos dónde viene la URL
+          this.mostrarAlertaElegante('El servidor respondió, pero falta el enlace de pago. Revisa la consola.', 'error');
         }
       },
       error: (err) => {
         console.error('Error en el checkout:', err);
-        this.mostrarAlertaElegante('Error al conectar con Stripe.', 'error');
+        this.mostrarAlertaElegante('Error al conectar con el servidor de Stripe.', 'error');
       }
     });
   }
 }
-
 //prueba11

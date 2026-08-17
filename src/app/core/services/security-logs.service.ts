@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class SecurityLogsService {
   
-  private apiUrl = 'https://back-end-donaruma-production-ac0c.up.railway.app/api/SecurityLogs'; 
+  private apiUrl = 'http://localhost:5108/api/SecurityLogs'; 
 
   constructor(private http: HttpClient) { }
 

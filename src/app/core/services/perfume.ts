@@ -10,7 +10,7 @@ import { Perfumes } from '../models/perfumes/perfumes';
 })
 export class PerfumeService {
   // La URL base (ajusta el puerto si tu C# usa otro)
-  private baseUrl = 'https://back-end-donaruma-production-ac0c.up.railway.app/api/perfumes'; 
+  private baseUrl = 'http://localhost:5108/api/perfumes'; 
 
   private perfumesSubject = new BehaviorSubject<any[]>([]);
   public perfumes$ = this.perfumesSubject.asObservable();

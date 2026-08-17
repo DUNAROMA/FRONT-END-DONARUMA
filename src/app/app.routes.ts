@@ -32,7 +32,7 @@ export const routes: Routes = [
      { path: 'pago-exitoso', component: PagoExitosoComponent, canActivate: [authGuard, roleGuard], data: { role: 'cliente' } },
     
    { path: 'admin-novedades', component: AdminNovedadesComponent, canActivate: [authGuard, roleGuard], data: { role: 'admin' } },
-    { path: 'carrito', component: Carrito, canActivate: [authGuard, roleGuard], data: { role: 'cliente' } },
+    { path: 'carrito', component: Carrito, canActivate: [authGuard], data: { role: 'cliente' } },
     { path: 'fofativas', component: Aromas, canActivate: [authGuard, roleGuard], data: { role: 'cliente' } },
     {path: 'ofertas', component: Ofertas, canActivate: [authGuard, roleGuard], data: { role: 'cliente' }},
 

@@ -15,7 +15,7 @@ export interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://back-end-donaruma-production-ac0c.up.railway.app/api/Auth';
+  private apiUrl = 'https://localhost:7030/api';
 
   private http = inject(HttpClient);
   private appStorage = inject(AppStorageService);

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'https://back-end-donaruma-production-ac0c.up.railway.app/api/Usuarios';
+  private apiUrl = 'http://localhost:5108/api/Usuarios';
 
   // 🛡️ EL PERMISO DE SEGURIDAD: 
   // Esto le dice a Google Chrome: "Sí, por favor adjunta la cookie HttpOnly 
